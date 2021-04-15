@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+	<persistence-unit name="KMerjobUnit" transaction-type="RESOURCE_LOCAL">
+		<!-- Fournisseur implémentation JPA -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		
+		<!-- Liste des entités à persister (nom des classes complète) -->
+		<class>fr.kmerjob.model.Personne</class>
+		<class>fr.kmerjob.model.Particulier</class>
+		<class>fr.kmerjob.model.Entreprise</class>
+		<class>fr.kmerjob.model.Categorie</class>
+		<class>fr.kmerjob.model.Mission</class>
+		<class>fr.kmerjob.model.Image</class>
+		<class>fr.kmerjob.model.Localisation</class>
+		<class>fr.kmerjob.model.Specialite</class>
+		<class>fr.kmerjob.model.Commentaire</class>
+		
+			
+		<properties>
+			<!-- Configuration accès SQL -->
+			<!-- createDatabaseIfNotExist=true -->
+			<property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ecommerce?serverTimezone=UTC" />
+			<property name="hibernate.connection.driver" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.user" value="root" />
+			<property name="hibernate.connection.password" value="Favela.1994" />
+			
+			<!-- Permet d'exécuter les requêtes DDL pour la génération de la base de données -->
+			<!-- Valeurs possibles : validate, update, create, create-drop -->
+			<!-- <property name="hibernate.hbm2ddl.auto" value="validate" /> -->
+			 <property name="hibernate.hbm2ddl.auto" value="update" />
+			
+			<!-- On utilise le moteur innoDB -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			
+			<!-- On imprime les requêtes SQL générées par Hibernate dans la console -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			
+			<!-- Activation cache de second niveau -->
+			<!-- <property name="hibernate.cache.use_second_level_cache" value="true"/>  -->
+			<!-- <property name="hibernate.cache.region.factory_class" value="org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory"/> -->
+			
+			
+			
+			<!-- Cache de Requêtes -->
+			<!-- <property name="hibernate.cache.use_query_cache" value="true"/> -->
+			
+		</properties>
+	</persistence-unit>
+
+</persistence>
